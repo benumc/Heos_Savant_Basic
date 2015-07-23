@@ -1,0 +1,2084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="racepoint_component_profile.xsd" manufacturer="Heos" model="Amp" device_class="Amplifier" unique_identifier="hostname" minimum_component_engine_version="0" rpm_xml_version="2.1">
+    <notes>
+        The setup takes a few steps at the moment as I couldn't think of a way to enumerate the sources on the fly
+        Profile should work with all heos models.
+        Does not provide LMQ in anyway.
+        Make sure the Heos device is setup with a static/reserved ip
+        Add profile to blueprint, connect ethernet and enter IP address on the wire.
+        Upload
+        Browse to system monitor -> System State and find the Source Names by searching for "AuxInput"
+        You should see a list of each discovered Heos Input with a number.
+        Using that number, you can make your audio connections in blueprint and upload and test.
+    </notes>
+    <control_interfaces preferred="ip">
+        <ip port="1255" protocol="telnet" response_time_length_ms="50">
+            <send_postfix type="hex">0D0A</send_postfix>
+            <receive_start_condition type="character">{</receive_start_condition>
+            <receive_end_condition test_condition="data" type="character">}, </receive_end_condition>
+            <receive_end_condition test_condition="data" type="character">}</receive_end_condition>
+            <receive_end_condition test_condition="data" type="character">[</receive_end_condition>
+            <receive_end_condition test_condition="data" type="hex">0D</receive_end_condition>
+            <receive_end_condition test_condition="data" type="hex">0A</receive_end_condition>
+        </ip>
+    </control_interfaces>
+    <media_interfaces>
+        <input name_on_component="Aux In 1">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 2">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 3">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 4">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 5">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 6">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 7">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 8">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 9">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 10">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 11">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 12">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 13">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 14">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 15">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 16">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 17">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 18">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 19">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 20">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 21">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 22">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 23">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 24">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 25">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 26">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 27">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 28">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 29">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 30">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 31">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 32">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 33">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 34">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 35">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <input name_on_component="Aux In 36">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_AUDIOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_VIDEOSWITCH_FUNCTION"/>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </input>
+        <output name_on_component="Output">
+            <combined_media>
+                <audio_media type="hdmi_audio"/>
+                <video_media type="hdmi"/>
+            </combined_media>
+            <audio_media type="analog_minijack"/>
+            <audio_media type="rca_stereo"/>
+            <audio_media type="coaxial_digital"/>
+            <audio_media type="optical_digital"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </output>
+        <data name_on_component="Ethernet">
+            <combined_media>
+                <data_media type="ethernet"/>
+                <control port="1255"/>
+            </combined_media>
+        </data>
+        <internal name_on_component="Speakers">
+            <audio_media></audio_media>
+            <resource resource_type="AV_STEREOSPEAKERS_SINK"/>
+            <resource resource_type="AV_AMPLIFIER_FUNCTION"/>
+            <resource resource_type="AV_VOLUMECONTROL_FUNCTION"/>
+        </internal>
+    </media_interfaces>
+    <state_variable_list>
+        <state_variable name="RegisteredForChangeEvents" owning_logical_component="Player" state_center_binding="RegisteredForChangeEvents" state_center_type="string" receive_updates_from_state_center="yes">off</state_variable>
+        <state_variable name="ObtainedSourceList" owning_logical_component="Player" state_center_binding="ObtainedSourceList" state_center_type="integer" receive_updates_from_state_center="yes">0</state_variable>
+        
+        <volume_state_variable name="PlayerVolume" owning_logical_component="Player" state_center_binding="CurrentVolume" min_value="0" max_value="100" state_center_type="integer" granularity="1">0</volume_state_variable>
+        <volume_state_variable name="Volume" state_center_binding="Volume" owning_logical_component="Player" state_center_type="integer" min_value="0" max_value="100" granularity="1">0</volume_state_variable>
+        
+        <state_variable name="PlayerVolumeStep" state_center_binding="PlayerVolumeStep" state_center_type="integer" owning_logical_component="Player" min_value="1" max_value="10" user_editable="yes" receive_updates_from_state_center="yes" note="Modify Volume Ramp Rate">5</state_variable>
+        
+        <state_variable name="PlayerMute" state_center_binding="CurrentMuteStatus" state_center_type="string" owning_logical_component="Player">OFF</state_variable>
+        <state_variable name="Mute" state_center_binding="Mute" owning_logical_component="Player" state_center_type="string"></state_variable>
+        
+        <state_variable name="PlayerOffAction" state_center_binding="PlayerOffAction" state_center_type="string" user_editable="yes" receive_updates_from_state_center="yes" owning_logical_component="Player" note="pause or stop">stop</state_variable>
+        <state_variable name="PlayerPlayState" state_center_binding="CurrentPlayState" state_center_type="string" owning_logical_component="Player">stop</state_variable>
+        
+        <state_variable name="PlayerName" state_center_binding="PlayerName" state_center_type="string" owning_logical_component="Player" receive_updates_from_state_center="yes" user_editable="yes" note="Obtain from system monitor"></state_variable>
+        <state_variable name="Name" state_center_binding="Name" owning_logical_component="Player" state_center_type="string"></state_variable>
+        
+        <state_variable name="PID" state_center_binding="PID" owning_logical_component="Player" state_center_type="string"></state_variable>
+        
+        <state_variable name="AuxSID" state_center_binding="AuxSID" owning_logical_component="Player" state_center_type="string"></state_variable>
+        
+        <state_variable name="CurrentSID" state_center_binding="CurrentSID" owning_logical_component="Player" state_center_type="string"></state_variable>
+        <state_variable name="CurrentMID" state_center_binding="CurrentMID" owning_logical_component="Player" state_center_type="string"></state_variable>
+        <state_variable name="CurrentMIDName" state_center_binding="CurrentMIDName" owning_logical_component="Player" state_center_type="string"></state_variable>
+        
+        <state_variable name="Compare1" state_center_binding="Compare1" state_center_type="integer" owning_logical_component="Player"></state_variable>
+        <state_variable name="Compare2" state_center_binding="Compare2" state_center_type="integer" owning_logical_component="Player"></state_variable>
+        <state_variable name="CompareResult" state_center_binding="CompareResult" state_center_type="string" owning_logical_component="Player"></state_variable>
+        <!--
+        <state_variable name="Temp" state_center_binding="Temp" owning_logical_component="Player" state_center_type="string"></state_variable>
+        <state_variable name="tempPID" state_center_binding="tempPID" owning_logical_component="Player" state_center_type="string"></state_variable>
+        -->
+        <state_variable name="EmptySourceFound" state_center_binding="EmptySourceFound" state_center_type="integer" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source1" state_center_binding="Source1" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source2" state_center_binding="Source2" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source3" state_center_binding="Source3" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source4" state_center_binding="Source4" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source5" state_center_binding="Source5" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source6" state_center_binding="Source6" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source7" state_center_binding="Source7" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source8" state_center_binding="Source8" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source9" state_center_binding="Source9" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source10" state_center_binding="Source10" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source11" state_center_binding="Source11" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source12" state_center_binding="Source12" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source13" state_center_binding="Source13" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source14" state_center_binding="Source14" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source15" state_center_binding="Source15" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source16" state_center_binding="Source16" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source17" state_center_binding="Source17" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source18" state_center_binding="Source18" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source19" state_center_binding="Source19" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source20" state_center_binding="Source20" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source21" state_center_binding="Source21" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source22" state_center_binding="Source22" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source23" state_center_binding="Source23" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source24" state_center_binding="Source24" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source25" state_center_binding="Source25" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source26" state_center_binding="Source26" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source27" state_center_binding="Source27" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source28" state_center_binding="Source28" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source29" state_center_binding="Source29" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source30" state_center_binding="Source30" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source31" state_center_binding="Source31" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source32" state_center_binding="Source32" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source33" state_center_binding="Source33" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source34" state_center_binding="Source34" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source35" state_center_binding="Source35" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        <state_variable name="Source36" state_center_binding="Source36" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player">0</state_variable>
+        
+        <state_variable name="AuxInput1Name" state_center_binding="AuxInput1Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput2Name" state_center_binding="AuxInput2Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput3Name" state_center_binding="AuxInput3Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput4Name" state_center_binding="AuxInput4Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput5Name" state_center_binding="AuxInput5Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput6Name" state_center_binding="AuxInput6Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput7Name" state_center_binding="AuxInput7Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput8Name" state_center_binding="AuxInput8Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput9Name" state_center_binding="AuxInput9Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput10Name" state_center_binding="AuxInput10Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput11Name" state_center_binding="AuxInput11Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput12Name" state_center_binding="AuxInput12Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput13Name" state_center_binding="AuxInput13Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput14Name" state_center_binding="AuxInput14Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput15Name" state_center_binding="AuxInput15Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput16Name" state_center_binding="AuxInput16Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput17Name" state_center_binding="AuxInput17Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput18Name" state_center_binding="AuxInput18Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput19Name" state_center_binding="AuxInput19Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput20Name" state_center_binding="AuxInput20Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput21Name" state_center_binding="AuxInput21Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput22Name" state_center_binding="AuxInput22Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput23Name" state_center_binding="AuxInput23Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput24Name" state_center_binding="AuxInput24Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput25Name" state_center_binding="AuxInput25Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput26Name" state_center_binding="AuxInput26Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput27Name" state_center_binding="AuxInput27Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput28Name" state_center_binding="AuxInput28Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput29Name" state_center_binding="AuxInput29Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput30Name" state_center_binding="AuxInput30Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput31Name" state_center_binding="AuxInput31Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput32Name" state_center_binding="AuxInput32Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput33Name" state_center_binding="AuxInput33Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput34Name" state_center_binding="AuxInput34Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput35Name" state_center_binding="AuxInput35Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+        <state_variable name="AuxInput36Name" state_center_binding="AuxInput36Name" state_center_type="string" receive_updates_from_state_center="yes" owning_logical_component="Player"></state_variable>
+    </state_variable_list>
+    <logical_component logical_component_name="Player">
+        <implementation>
+            <input name_on_component="Aux In 1">
+                <action_to_select name="SelectInput1"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 2">
+                <action_to_select name="SelectInput2"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 3">
+                <action_to_select name="SelectInput3"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 4">
+                <action_to_select name="SelectInput4"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 5">
+                <action_to_select name="SelectInput5"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 6">
+                <action_to_select name="SelectInput6"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 7">
+                <action_to_select name="SelectInput7"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 8">
+                <action_to_select name="SelectInput8"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 9">
+                <action_to_select name="SelectInput9"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 10">
+                <action_to_select name="SelectInput10"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 11">
+                <action_to_select name="SelectInput11"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 12">
+                <action_to_select name="SelectInput12"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 13">
+                <action_to_select name="SelectInput13"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 14">
+                <action_to_select name="SelectInput14"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 15">
+                <action_to_select name="SelectInput15"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 16">
+                <action_to_select name="SelectInput16"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 17">
+                <action_to_select name="SelectInput17"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 18">
+                <action_to_select name="SelectInput18"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 19">
+                <action_to_select name="SelectInput19"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 20">
+                <action_to_select name="SelectInput20"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 21">
+                <action_to_select name="SelectInput21"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 22">
+                <action_to_select name="SelectInput22"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 23">
+                <action_to_select name="SelectInput23"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 24">
+                <action_to_select name="SelectInput24"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 25">
+                <action_to_select name="SelectInput25"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 26">
+                <action_to_select name="SelectInput26"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 27">
+                <action_to_select name="SelectInput27"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 28">
+                <action_to_select name="SelectInput28"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 29">
+                <action_to_select name="SelectInput29"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 30">
+                <action_to_select name="SelectInput30"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 31">
+                <action_to_select name="SelectInput31"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 32">
+                <action_to_select name="SelectInput32"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 33">
+                <action_to_select name="SelectInput33"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 34">
+                <action_to_select name="SelectInput34"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 35">
+                <action_to_select name="SelectInput35"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <implementation>
+            <input name_on_component="Aux In 36">
+                <action_to_select name="SelectInput36"/>
+            </input>
+            <output name_on_component="Output"/>
+            <internal name_on_component="Speakers"/>
+        </implementation>
+        <status_messages>
+            <status_message name="RegisteredForChangeEvents">
+                <constant type="character">"heos": {"command": "system/register_for_change_events", "result": "success", "message": "enable=</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="RegisteredForChangeEvents" type="string"></update>
+                </data>
+            </status_message>
+            <status_message name="PlayerInfo">
+                <constant type="character">"name": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="Name" type="string"></update>
+                </data>
+                <constant type="character">, "pid": </constant>
+                <data type="character" terminator_type="character" terminator=",">
+                    <update state="PID" type="integer"></update>
+                </data>
+                <constant type="character"> "model": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="Model" type="string"></update>
+                </data>
+                <constant type="character">, "version": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="Version" type="string"></update>
+                </data>
+                <constant type="character">, "lineout": </constant>
+                <data type="character" terminator_type="end_of_data">
+                    <update state="Lineout" type="integer"></update>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="CompareSetup">
+                            <update_state_variable name="Compare1" update_type="set" update_source="state_variable">UID</update_state_variable>
+                            <update_state_variable name="Compare2" update_type="set" update_source="state_variable">PID</update_state_variable>
+                            <update_state_variable name="Compare1" update_type="decrement" update_source="state_variable" >Compare2</update_state_variable>
+                        </action>
+                        <action name="CompareSuccess">
+                            <execute_on_state_variable_condition name="Compare1" test_condition="equal">0</execute_on_state_variable_condition>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+            <status_message name="PlayerVolumeEvent">
+                <constant type="character">"heos": {"command": "event/player_volume_changed", "message": "pid=</constant>
+                <data type="character" terminator="&amp;" terminator_type="character">
+                    <update state="PID" type="integer"></update>
+                </data>
+                <constant type="character">level=</constant>
+                <data type="character" terminator_type="character" terminator="&amp;">
+                    <update state="Volume" type="integer"></update>
+                </data>
+                <constant type="character">mute=</constant>
+                <data type="character" terminator_type="character" terminator="&quot;">
+                    <data_map match_required="no">
+                        <map key="on">
+                            <update state="Mute" type="string">ON</update>
+                        </map>
+                        <map key="off">
+                            <update state="Mute" type="string">OFF</update>
+                        </map>
+                    </data_map>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="CompareSetup">
+                            <update_state_variable name="Compare1" update_type="set" update_source="state_variable">UID</update_state_variable>
+                            <update_state_variable name="Compare2" update_type="set" update_source="state_variable">PID</update_state_variable>
+                            <update_state_variable name="Compare1" update_type="decrement" update_source="state_variable">Compare2</update_state_variable>
+                        </action>
+                        <action name="CompareSuccess">
+                            <execute_on_state_variable_condition name="Compare1" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="CompareResult" update_type="set" update_source="constant">TRUE!</update_state_variable>
+                            <update_state_variable name="PlayerMute" update_type="set" update_source="state_variable">Mute</update_state_variable>
+                            <update_state_variable name="PlayerVolume" update_type="set" update_source="state_variable">Volume</update_state_variable>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+            <status_message name="PlayerVolumeRequested">
+                <constant type="character">"heos": {"command": "player/get_volume", "result": "success", "message": "pid=</constant>
+                <data type="character" terminator="&amp;" terminator_type="character">
+                    <update state="PID" type="integer"></update>
+                </data>
+                <constant type="character">level=</constant>
+                <data type="character" terminator_type="character" terminator="&quot;">
+                    <update state="Volume" type="integer"></update>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="CompareSetup">
+                            <update_state_variable name="Compare1" update_type="set" update_source="state_variable">UID</update_state_variable>
+                            <update_state_variable name="Compare2" update_type="set" update_source="state_variable">PID</update_state_variable>
+                            <update_state_variable name="Compare1" update_type="decrement" update_source="state_variable">Compare2</update_state_variable>
+                        </action>
+                        <action name="CompareSuccess">
+                            <execute_on_state_variable_condition name="Compare1" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="CompareResult" update_type="set" update_source="constant">TRUE!</update_state_variable>
+                            <update_state_variable name="PlayerMute" update_type="set" update_source="state_variable">Mute</update_state_variable>
+                            <update_state_variable name="PlayerVolume" update_type="set" update_source="state_variable">Volume</update_state_variable>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+            <status_message name="GetMusicSources">
+                <constant type="character">"heos": {"command": "browse/get_music_sources", "result": "success", "message": ""</constant>
+                <run_elements>
+                    <actions>
+                        <action name="ClearServices">
+                            <update_state_variable name="Source1" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source2" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source3" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source4" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source5" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source6" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source7" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source8" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source9" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source10" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source11" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source12" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source13" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source14" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source15" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source16" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source17" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source18" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source19" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source20" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source21" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source22" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source23" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source24" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source25" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source26" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source27" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source28" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source29" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source30" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source31" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source32" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source33" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source34" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source35" update_type="set" update_source="constant">0</update_state_variable>
+                            <update_state_variable name="Source36" update_type="set" update_source="constant">0</update_state_variable>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+            <status_message name="ParseAuxService">
+                <constant type="character">"name": "AUX Input", "image_url": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="ImageURL" type="string"></update>
+                </data>
+                <constant type="character">, "type": "heos_service", "sid": </constant>
+                <data type="character" terminator_type="end_of_data">
+                    <update state="AuxSID" type="integer"></update>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="GetAuxPlayers">
+                            <command_interface interface="ip">
+                                <command response_required="no">
+                                    <command_string type="character">heos://browse/browse?sid=</command_string>
+                                    <parameter_list>
+                                        <parameter parameter_data_type="character" state_variable="AuxSID"></parameter>
+                                    </parameter_list>
+                                </command>
+                            </command_interface>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+            <status_message name="ParseAuxSources">
+                <constant type="character">"name": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="AuxName" type="string"></update>
+                </data>
+                <constant type="character">, "image_uri": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="ImageURL" type="string"></update>
+                </data>
+                <constant type="character">, "type": "heos_service", "sid": </constant>
+                <data type="character" terminator_type="end_of_data">
+                    <update state="AuxSID" type="integer"></update>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="GetAuxSIDInputs">
+                            <command_interface interface="ip">
+                                <command response_required="no">
+                                    <command_string type="character">heos://browse/browse?sid=</command_string>
+                                    <parameter_list>
+                                        <parameter parameter_data_type="character" state_variable="AuxSID"></parameter>
+                                    </parameter_list>
+                                </command>
+                            </command_interface>
+                        </action></actions>
+                </run_elements>
+            </status_message>
+            <status_message name="GetCurrentSID">
+                <constant type="character">"heos": {"command": "browse/browse", "result": "success", "message": "sid=</constant>
+                <data type="character" terminator="&amp;" terminator_type="character">
+                    <update state="CurrentSID" type="string"></update>
+                </data>
+                <constant type="character">returned=</constant>
+                <data type="character" terminator="&amp;" terminator_type="character">
+                    <update state="CurrentReturned" type="integer"></update>
+                </data>
+                <constant type="character">count=</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="CurrentCount" type="integer"></update>
+                </data>
+            </status_message>
+            <status_message name="GetSidSources">
+                <constant type="character">"container": "no", "mid": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="CurrentMID" type="string"></update>
+                </data>
+                <constant type="character">, "type": "station", "playable": "yes", "name": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="CurrentMIDName" type="string"></update>
+                </data>
+                <constant type="character">, "image_url": "</constant>
+                <data type="character" terminator="&quot;" terminator_type="character">
+                    <update state="MIDImage" type="string"></update>
+                </data>
+                <run_elements>
+                    <actions>
+                        <action name="Setup">
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">0</update_state_variable>
+                        </action>
+                        <action name="SetSource1">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source1" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source1" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source1" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source1" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source1" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput1Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource2">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source2" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source2" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source2" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source2" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source2" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput2Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource3">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source3" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source3" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source3" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source3" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source3" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput3Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource4">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source4" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source4" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source4" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source4" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source4" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput4Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource5">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source5" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source5" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source5" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source5" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source5" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput5Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource6">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source6" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source6" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source6" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source6" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source6" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput6Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource7">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source7" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source7" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source7" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source7" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source7" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput7Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource8">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source8" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source8" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source8" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source8" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source8" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput8Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource9">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source9" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source9" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source9" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source9" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source9" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput9Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource10">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source10" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source10" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source10" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source10" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source10" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput10Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource11">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source11" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source11" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source11" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source11" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source11" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput11Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource12">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source12" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source12" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source12" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source12" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source12" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput12Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource13">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source13" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source13" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source13" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source13" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source13" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput13Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource14">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source14" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source14" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source14" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source14" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source14" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput14Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource15">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source15" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source15" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source15" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source15" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source15" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput15Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource16">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source16" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source16" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source16" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source16" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source16" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput16Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource17">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source17" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source17" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source17" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source17" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source17" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput17Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource18">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source18" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source18" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source18" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source18" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source18" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput18Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource19">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source19" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source19" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source19" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source19" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source19" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput19Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource20">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source20" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source20" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source20" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source20" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source20" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput20Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource21">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source21" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source21" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source21" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source21" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source21" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput21Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource22">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source22" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source22" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source22" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source22" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source22" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput22Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource23">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source23" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source23" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source23" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source23" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source23" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput23Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource24">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source24" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source24" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source24" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source24" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source24" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput24Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource25">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source25" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source25" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source25" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source25" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source25" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput25Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource26">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source26" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source26" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source26" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source26" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source26" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput26Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource27">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source27" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source27" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source27" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source27" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source27" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput27Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource28">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source28" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source28" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source28" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source28" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source28" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput28Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource29">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source29" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source29" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source29" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source29" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source29" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput29Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource30">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source30" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source30" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source30" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source30" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source30" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput30Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource31">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source31" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source31" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source31" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source31" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source31" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput31Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource32">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source32" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source32" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source32" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source32" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source32" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput32Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource33">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source33" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source33" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source33" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source33" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source33" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput33Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource34">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source34" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source34" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source34" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source34" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source34" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput34Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource35">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source35" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source35" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source35" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source35" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source35" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput35Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                        <action name="SetSource36">
+                            <execute_on_state_variable_condition name="EmptySourceFound" test_condition="equal">0</execute_on_state_variable_condition>
+                            <execute_on_state_variable_condition name="Source36" test_condition="equal">0</execute_on_state_variable_condition>
+                            <update_state_variable name="EmptySourceFound" update_type="set" update_source="constant">1</update_state_variable>
+                            <update_state_variable name="Source36" update_type="set" update_source="constant">&amp;sid=</update_state_variable>
+                            <update_state_variable name="Source36" update_type="append" update_source="state_variable">CurrentSID</update_state_variable>
+                            <update_state_variable name="Source36" update_type="append" update_source="constant">&amp;mid=</update_state_variable>
+                            <update_state_variable name="Source36" update_type="append" update_source="state_variable">CurrentMID</update_state_variable>
+                            <update_state_variable name="AuxInput36Name" update_type="set" update_source="state_variable">CurrentMIDName</update_state_variable>
+                        </action>
+                    </actions>
+                </run_elements>
+            </status_message>
+        </status_messages>
+        <universal_component_actions>
+            <action name="PowerOff">
+                <command_interface interface="ip">
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/set_play_state?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;state=</parameter>
+                            <parameter parameter_data_type="character" state_variable="PlayerOffAction"></parameter>
+                        </parameter_list>
+                        <response_codes>
+                            <rspmessage status="success" name="PlayState">
+                                <constant type="character">"heos": {"command": "player/set_play_state"</constant>
+                                <constant type="character">, "result": "success", "message": "pid=</constant>
+                                <data type="character" terminator="&amp;" terminator_type="character">
+                                    <update state="PID" type="string"></update>
+                                </data>
+                                <constant type="character">state=</constant>
+                                <data type="character" terminator="&quot;" terminator_type="character">
+                                    <update state="CurrentPlayState" type="string"></update>
+                                </data>
+                            </rspmessage>
+                        </response_codes>
+                    </command>
+                </command_interface>
+            </action>
+        </universal_component_actions>
+        <resource_component_actions resource_type="AV_VOLUMECONTROL_FUNCTION">
+            <action name="SetVolume">
+                <action_argument name="VolumeValue" note="0-50"/>
+                <update_state_variable name="PlayerMute" update_type="set" update_source="constant">OFF</update_state_variable>
+                <update_volume_variables name="PlayerVolume" update_type="set" update_source="action_argument">VolumeValue</update_volume_variables>
+                <command_interface interface="ip">
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/set_volume?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;level=</parameter>
+                            <parameter parameter_data_type="character" state_variable="PlayerVolume"></parameter>
+                        </parameter_list>
+                        <response_codes>
+                            <rspmessage status="success" name="CurrentVolume">
+                                <constant type="character">"heos": {"command": "player/set_volume"</constant>
+                                <constant type="character">, "result": "success", "message": "pid=</constant>
+                                <data type="character" terminator="&amp;" terminator_type="character">
+                                    <update state="PID" type="string"></update>
+                                </data>
+                                <constant type="character">level=</constant>
+                                <data type="character" terminator="&quot;" terminator_type="character">
+                                    <update state="CurrentVolume" type="integer"></update>
+                                </data>
+                            </rspmessage>
+                        </response_codes>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="DecreaseVolume">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="200">
+                        <command_string type="character">heos://player/volume_down?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;step=</parameter>
+                            <parameter parameter_data_type="character" state_variable="PlayerVolumeStep"></parameter>
+                        </parameter_list>
+                    </command>
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/get_volume?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="IncreaseVolume">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="200">
+                        <command_string type="character">heos://player/volume_up?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;step=</parameter>
+                            <parameter parameter_data_type="character" state_variable="PlayerVolumeStep"></parameter>
+                        </parameter_list>
+                    </command>
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/get_volume?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="MuteOn">
+                <command_interface interface="ip">
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/set_mute?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;state=on</parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="MuteOff">
+                <command_interface interface="ip">
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/set_mute?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character">&amp;state=off</parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+        </resource_component_actions>
+        <custom_component_actions>
+            <action name="SelectInput1">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source1"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput2">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source2"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput3">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source3"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput4">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source4"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput5">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source5"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput6">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source6"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput7">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source7"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput8">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source8"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput9">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source9"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput10">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source10"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput11">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source11"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput12">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source12"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput13">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source13"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput14">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source14"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput15">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source15"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput16">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source16"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput17">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source17"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput18">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source18"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput19">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source19"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput20">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source20"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput21">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source21"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput22">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source22"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput23">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source23"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput24">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source24"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput25">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source25"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput26">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source26"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput27">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source27"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput28">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source28"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput29">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source29"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput30">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source30"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput31">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source31"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput32">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source32"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput33">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source33"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput34">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source34"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput35">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source35"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="SelectInput36">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/play_stream?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                            <parameter parameter_data_type="character" state_variable="Source36"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="GetZoneVolume">
+                <execute_on_state_variable_condition name="UID" test_condition="not_equal">0</execute_on_state_variable_condition>
+                <command_interface interface="ip">
+                    <command response_required="yes">
+                        <command_string type="character">heos://player/get_volume?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                        </parameter_list>
+                        <response_codes>
+                            <rspmessage status="success" name="CurrentVolume">
+                                <constant type="character">"heos": {"command": "player/get_volume"</constant>
+                                <constant type="character">, "result": "success", "message": "pid=</constant>
+                                <data type="character" terminator="&amp;" terminator_type="character">
+                                    <update state="PID" type="string"></update>
+                                </data>
+                                <constant type="character">level=</constant>
+                                <data type="character" terminator="&quot;" terminator_type="character">
+                                    <update state="CurrentVolume" type="integer"></update>
+                                </data>
+                            </rspmessage>
+                        </response_codes>
+                    </command>
+                </command_interface>
+                <!--<execute_on_schedule period_ms="5000"></execute_on_schedule>-->
+            </action>
+            <action name="GetMusicSources">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/get_music_sources</command_string>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="MuteToggle">
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://player/toggle_mute?pid=</command_string>
+                        <parameter_list>
+                            <parameter parameter_data_type="character" state_variable="UID"></parameter>
+                        </parameter_list>
+                    </command>
+                </command_interface>
+            </action>
+            <action name="RegisterForChangeEvents">
+                <execute_on_state_variable_condition name="RegisteredForChangeEvents" test_condition="equal">off</execute_on_state_variable_condition>
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://system/register_for_change_events?enable=on</command_string>
+                    </command>
+                </command_interface>
+                <execute_on_schedule period_ms="4000"></execute_on_schedule>
+            </action>
+            <action name="ObtainSources">
+                <execute_on_state_variable_condition name="ObtainedSourceList" test_condition="equal">0</execute_on_state_variable_condition>
+                <update_state_variable name="ObtainedSourceList" update_type="set" update_source="constant">1</update_state_variable>
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/get_music_sources</command_string>
+                    </command>
+                </command_interface>
+                <execute_on_schedule period_ms="5000"></execute_on_schedule>
+            </action>
+        </custom_component_actions>
+    </logical_component>
+</component>
