@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Author: Ben Carlin
+Property of: Paramount Automation Ltd.
+Contact Email: ben@paramountautomation.com
+-->
 <component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="racepoint_component_profile.xsd" manufacturer="Heos" model="Amp" device_class="Amplifier" unique_identifier="hostname" minimum_component_engine_version="0" rpm_xml_version="2.1">
     <notes>
         The setup takes a few steps at the moment as I couldn't think of a way to enumerate the sources on the fly
@@ -8,8 +13,11 @@
         Add profile to blueprint, connect ethernet and enter IP address on the wire.
         Upload
         Browse to system monitor -> System State and find the Source Names by searching for "AuxInput"
-        You should see a list of each discovered Heos Input with a number.
-        Using that number, you can make your audio connections in blueprint and upload and test.
+        You should see a list of each discovered Heos Inputs with a number.
+        Using that number, you can make your audio connections in blueprint.
+        To get your Hostname, search state center for PID_ and you should see a list of all the heos players and their IDs.
+        Enter the ID in the hostname field exactly as shown.
+        Finally upload and test.
     </notes>
     <control_interfaces preferred="ip">
         <ip port="1255" protocol="telnet" response_time_length_ms="50">
@@ -554,6 +562,7 @@
     <state_variable_list>
         <state_variable name="RegisteredForChangeEvents" owning_logical_component="Player" state_center_binding="RegisteredForChangeEvents" state_center_type="string" receive_updates_from_state_center="yes">off</state_variable>
         <state_variable name="ObtainedSourceList" owning_logical_component="Player" state_center_binding="ObtainedSourceList" state_center_type="integer" receive_updates_from_state_center="yes">0</state_variable>
+        <state_variable name="ObtainedPlayerList" owning_logical_component="Player" state_center_binding="ObtainedPlayerList" state_center_type="integer" receive_updates_from_state_center="yes">0</state_variable>
         
         <volume_state_variable name="PlayerVolume" owning_logical_component="Player" state_center_binding="CurrentVolume" min_value="0" max_value="100" state_center_type="integer" granularity="1">0</volume_state_variable>
         <volume_state_variable name="Volume" state_center_binding="Volume" owning_logical_component="Player" state_center_type="integer" min_value="0" max_value="100" granularity="1">0</volume_state_variable>
@@ -932,26 +941,11 @@
                 <data type="character" terminator="&quot;" terminator_type="character">
                     <update state="Model" type="string"></update>
                 </data>
-                <constant type="character">, "version": "</constant>
-                <data type="character" terminator="&quot;" terminator_type="character">
-                    <update state="Version" type="string"></update>
-                </data>
-                <constant type="character">, "lineout": </constant>
+                <constant type="character">, "version": </constant>
                 <data type="character" terminator_type="end_of_data">
-                    <update state="Lineout" type="integer"></update>
+                    <update state="Info" type="string"></update>
                 </data>
-                <run_elements>
-                    <actions>
-                        <action name="CompareSetup">
-                            <update_state_variable name="Compare1" update_type="set" update_source="state_variable">UID</update_state_variable>
-                            <update_state_variable name="Compare2" update_type="set" update_source="state_variable">PID</update_state_variable>
-                            <update_state_variable name="Compare1" update_type="decrement" update_source="state_variable" >Compare2</update_state_variable>
-                        </action>
-                        <action name="CompareSuccess">
-                            <execute_on_state_variable_condition name="Compare1" test_condition="equal">0</execute_on_state_variable_condition>
-                        </action>
-                    </actions>
-                </run_elements>
+                <append_data_to_state_names state="Name"/>
             </status_message>
             <status_message name="PlayerVolumeEvent">
                 <constant type="character">"heos": {"command": "event/player_volume_changed", "message": "pid=</constant>
@@ -2075,6 +2069,16 @@
                 <command_interface interface="ip">
                     <command response_required="no" response_time_length_ms="50">
                         <command_string type="character">heos://browse/get_music_sources</command_string>
+                    </command>
+                </command_interface>
+                <execute_on_schedule period_ms="5000"></execute_on_schedule>
+            </action>
+            <action name="ObtainPlayers">
+                <execute_on_state_variable_condition name="ObtainedPlayerList" test_condition="equal">0</execute_on_state_variable_condition>
+                <update_state_variable name="ObtainedPlayerList" update_type="set" update_source="constant">1</update_state_variable>
+                <command_interface interface="ip">
+                    <command response_required="no" response_time_length_ms="50">
+                        <command_string type="character">heos://browse/get_players</command_string>
                     </command>
                 </command_interface>
                 <execute_on_schedule period_ms="5000"></execute_on_schedule>
