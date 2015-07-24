@@ -17,4 +17,10 @@ Simple IP integration of Heos units for volume control and source selection.
   
   You should see a list of each discovered Heos Input with a number.
   
-  Using that number, you can make your audio connections in blueprint and upload and test.
+  Using that number, you can make your audio connections in blueprint.
+  
+  To get your Hostname, search state center for PID_ and you should see a list of all the heos players and their IDs.
+  
+  Enter the ID in the hostname field exactly as shown.
+
+  Finally upload and test.
