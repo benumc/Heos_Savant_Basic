@@ -13,13 +13,16 @@ Simple IP integration of Heos units for volume control and source selection.
   Add profile to blueprint, connect ethernet and enter IP address on the wire.
   
   Upload
+  
   Browse to system monitor -> System State and find the Source Names by searching for "AuxInput".
   
   You should see a list of each discovered Heos Input with a number.
   
   Using that number, you can make your audio connections in blueprint.
   
-  To get your Hostname, search state center for "PID_" and you should see a list of all the heos players and their IDs.
+  To get your Hostname, while in System Monitor -> System State, search for “PID_”. 
+  
+  You should see a list of all of the Heos players and their IDs. IDs are listed under the State Value column.
   
   Enter the ID in the hostname field exactly as shown.
 
